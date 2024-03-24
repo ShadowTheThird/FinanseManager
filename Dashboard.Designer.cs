@@ -39,6 +39,7 @@
             this.monthly_expenses = new System.Windows.Forms.TextBox();
             this.income = new System.Windows.Forms.TextBox();
             this.expenses = new System.Windows.Forms.TextBox();
+            this.transfer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // welcome_label
@@ -156,11 +157,23 @@
             this.expenses.Text = "0 PLN";
             this.expenses.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // transfer
+            // 
+            this.transfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.transfer.Location = new System.Drawing.Point(35, 271);
+            this.transfer.Name = "transfer";
+            this.transfer.Size = new System.Drawing.Size(110, 29);
+            this.transfer.TabIndex = 19;
+            this.transfer.Text = "Transfer";
+            this.transfer.UseVisualStyleBackColor = true;
+            this.transfer.Click += new System.EventHandler(this.transfer_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.transfer);
             this.Controls.Add(this.expenses);
             this.Controls.Add(this.income);
             this.Controls.Add(this.monthly_expenses);
@@ -173,7 +186,7 @@
             this.Controls.Add(this.budget_label);
             this.Controls.Add(this.welcome_label);
             this.Name = "Dashboard";
-            this.Text = "0";
+            this.Text = "Dashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -193,5 +206,6 @@
         private System.Windows.Forms.TextBox monthly_expenses;
         private System.Windows.Forms.TextBox income;
         private System.Windows.Forms.TextBox expenses;
+        private System.Windows.Forms.Button transfer;
     }
 }

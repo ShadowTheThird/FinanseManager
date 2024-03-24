@@ -47,5 +47,11 @@ namespace FinanseManager
         {
             authenticator.Close();
         }
+
+        private void transfer_Click(object sender, EventArgs e)
+        {
+            Transfer transfer = new Transfer(this);
+            transfer.Show();
+        }
     }
 }
