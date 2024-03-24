@@ -45,16 +45,18 @@
             this.username.Size = new System.Drawing.Size(298, 26);
             this.username.TabIndex = 0;
             this.username.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // password
             // 
             this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.password.Location = new System.Drawing.Point(162, 203);
             this.password.Name = "password";
-            this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(298, 26);
             this.password.TabIndex = 1;
             this.password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.password.UseSystemPasswordChar = true;
+            this.password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // logon
             // 
@@ -87,6 +89,7 @@
             this.password_label.Size = new System.Drawing.Size(86, 20);
             this.password_label.TabIndex = 5;
             this.password_label.Text = "Password";
+            this.password_label.Click += new System.EventHandler(this.password_label_Click);
             // 
             // username_label
             // 

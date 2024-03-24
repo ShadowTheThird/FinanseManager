@@ -33,7 +33,7 @@ namespace FinanseManager
 
         private void register_button_Click(object sender, EventArgs e)
         {
-            if(this.username.Text != null && this.password.Text != null && this.confirm_password.Text != null) 
+            if(this.username.Text != null && this.password.Text != null && this.confirm_password.Text != null && this.name.Text != null) 
             {
                 if (this.password.Text == this.confirm_password.Text)
                 {
@@ -46,13 +46,47 @@ namespace FinanseManager
                             MessageBox.Show("username already taken", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
+                        if (fields[3] == this.name.Text)
+                        {
+                            MessageBox.Show("name already taken", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                     }
-                    File.AppendAllText("..\\..\\user_data.csv", this.username.Text + "," + this.password.Text + "," + this.help.Text + "," + this.username.Text + Environment.NewLine);
-                    string name = this.username.Text.ToLower();
-                    name = name[0].ToString().ToUpper()+name.Substring(1);
-                    File.WriteAllText("..\\..\\user_data\\" + this.username.Text + ".csv", name + Environment.NewLine);
+                    File.AppendAllText("..\\..\\user_data.csv", this.username.Text + "," + this.password.Text + "," + this.help.Text + "," + this.name.Text + Environment.NewLine);
+                    string name = this.name.Text[0].ToString().ToUpper()+this.name.Text.Substring(1);
+                    File.WriteAllText("..\\..\\user_data\\" + this.name.Text + ".csv", name + Environment.NewLine);
                     this.Close();
                 }
+                else
+                {
+                    MessageBox.Show("passwords do not match", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("all fields must be filled", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void password_label_Click(object sender, EventArgs e)
+        {
+            this.password.UseSystemPasswordChar = !this.password.UseSystemPasswordChar;
+        }
+
+        private void confirm_password_label_Click(object sender, EventArgs e)
+        {
+            this.confirm_password.UseSystemPasswordChar = !this.confirm_password.UseSystemPasswordChar;
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                register_button_Click(sender, e);
+            }
+            if(e.KeyCode == Keys.Escape) 
+            {
+                this.Close();
             }
         }
     }

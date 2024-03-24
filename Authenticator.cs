@@ -56,6 +56,7 @@ namespace FinanseManager
                     Admin admin = new Admin();
                     admin.Show();
                     this.Hide();
+                    return;
                 }
                 Dashboard dashboard = new Dashboard(this, user);
                 dashboard.Show();
@@ -72,6 +73,23 @@ namespace FinanseManager
             Register register = new Register(this, this.username.Text);
             register.Show();
             this.Hide();
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                logon_Click(sender, e);
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+        private void password_label_Click(object sender, EventArgs e)
+        {
+            this.password.UseSystemPasswordChar = !this.password.UseSystemPasswordChar;
         }
     }
 }

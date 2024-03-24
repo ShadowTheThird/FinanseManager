@@ -68,5 +68,17 @@ namespace FinanseManager
         {
             authenticator.Show();
         }
+
+        private void username_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                help_Click(sender, e);
+            }
+            if(e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

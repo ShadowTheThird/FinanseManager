@@ -42,6 +42,7 @@
             this.username.Size = new System.Drawing.Size(298, 26);
             this.username.TabIndex = 1;
             this.username.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.username_KeyDown);
             // 
             // username_label
             // 
