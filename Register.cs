@@ -54,7 +54,7 @@ namespace FinanseManager
                     }
                     File.AppendAllText("..\\..\\user_data.csv", this.username.Text + "," + this.password.Text + "," + this.help.Text + "," + this.name.Text + Environment.NewLine);
                     string name = this.name.Text[0].ToString().ToUpper()+this.name.Text.Substring(1);
-                    File.WriteAllText("..\\..\\user_data\\" + this.name.Text + ".csv", name + Environment.NewLine + DateTime.Today.ToString("dd-MM-yyyy") + Environment.NewLine + "0");
+                    File.WriteAllText("..\\..\\user_data\\" + this.name.Text + ".csv", name + Environment.NewLine + DateTime.Today.ToString("dd-MM-yyyy") + Environment.NewLine + "0" + Environment.NewLine);
                     this.Close();
                 }
                 else
