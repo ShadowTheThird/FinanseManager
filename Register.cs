@@ -33,7 +33,7 @@ namespace FinanseManager
 
         private void register_button_Click(object sender, EventArgs e)
         {
-            if(this.username.Text != null && this.password.Text != null && this.confirm_password.Text != null && this.name.Text != null) 
+            if(this.username.Text != "" && this.password.Text != "" && this.confirm_password.Text != "" && this.name.Text != "") 
             {
                 if (this.password.Text == this.confirm_password.Text)
                 {
@@ -54,7 +54,7 @@ namespace FinanseManager
                     }
                     File.AppendAllText("..\\..\\user_data.csv", this.username.Text + "," + this.password.Text + "," + this.help.Text + "," + this.name.Text + Environment.NewLine);
                     string name = this.name.Text[0].ToString().ToUpper()+this.name.Text.Substring(1);
-                    File.WriteAllText("..\\..\\user_data\\" + this.name.Text + ".csv", name + Environment.NewLine);
+                    File.WriteAllText("..\\..\\user_data\\" + this.name.Text + ".csv", name + Environment.NewLine + DateTime.Today.ToString("dd-MM-yyyy") + Environment.NewLine + "0");
                     this.Close();
                 }
                 else
